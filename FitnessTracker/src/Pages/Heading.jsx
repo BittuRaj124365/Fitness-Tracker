@@ -153,6 +153,16 @@ export default function PrimarySearchAppBar() {
       </MenuItem>
     </Menu>
   );
+  //  for set greeting messages like goodmorning or good evening
+  const hour = new Date().getHours();
+  let greeting = "";
+  if (hour < 12) {
+    greeting = "Good Morning";
+  } else if (hour < 18) {
+    greeting = "Good Afternoon";
+  } else if (hour < 23) {
+    greeting = "Good Evening";
+  }
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -173,7 +183,10 @@ export default function PrimarySearchAppBar() {
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}
           >
-            MUI
+            <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
+              {greeting}, Bittu
+            </Typography>
+            Welcome Here...
           </Typography>
           <Search>
             <SearchIconWrapper>
